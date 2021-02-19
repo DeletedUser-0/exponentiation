@@ -32,7 +32,7 @@ function upgrade1() {
 		if (Decimal.compare(game.number2.total, game.upgrade1.secondUpgrade) >= 0) {
 			game.number1.total = Decimal.sub(game.number1.total, game.upgrade1.firstUpgrade);
 			game.number2.total = Decimal.sub(game.number2.total, game.upgrade1.secondUpgrade);
-			game.upgrade1.firstUpgrade = Decimal.pow(game.upgrade1.firstUpgrade, 1.12);
+			game.upgrade1.firstUpgrade = Decimal.pow(game.upgrade1.firstUpgrade, 1.075);
 			if (Decimal.compare(game.upgrade1.level, 2) <= 0) {
 				game.upgrade1.secondUpgrade = Decimal.times(game.upgrade1.secondUpgrade, 1.125);
 			} else {
