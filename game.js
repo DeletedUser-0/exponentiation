@@ -40,8 +40,8 @@ function upgrade1() {
 			}
 			game.number1.divide = Decimal.times(game.number1.divide, 1.0001)
 			game.number2.divide = Decimal.times(game.number2.divide, 1.0001)
-			game.number1.original = Decimal.times(game.number1.original, 1.15);
-			game.number2.original = Decimal.times(game.number2.original, 1.15);
+			game.number1.original = Decimal.times(game.number1.original, 1.35);
+			game.number2.original = Decimal.times(game.number2.original, 1.35);
 			game.number1.add = game.number1.original;
 			game.number2.add = game.number2.original;
 			game.upgrade1.level = Decimal.add(game.upgrade1.level, 1);
