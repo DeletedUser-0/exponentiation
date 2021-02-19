@@ -34,7 +34,7 @@ function calculate() {
 	game.result = Decimal.pow(game.number1.total, game.number2.total);
 	if (Decimal.compare(game.upgrade1.level, 2) >= 0) {
 		game.result = Decimal.pow(game.number1.total.toFixed(1), game.number2.total.toFixed(2));
-	} if (Decimal.compare(game.upgrade1.level, 4) >= 0) {
+	} if (Decimal.compare(game.upgrade1.level, 10) >= 0) {
 		game.result = Decimal.pow(game.number1.total.toFixed(0), game.number2.total.toFixed(0));
 	}
 };
