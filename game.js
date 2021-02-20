@@ -106,10 +106,13 @@ var mainGameLoop = window.setInterval(function () {
 
 function loadGame() {
 	onLoadClick += 1;
+	var saveData = JSON.parse(localStorage.saveData || null) || {};
+	game = saveData;
 	console.log("Save loaded");
-	return game.obj || "default";
+	return saveData.obj || "default";
 };
 
 function saveGame() {
-	localStorage.game = JSON.stringify(game);
+	saveData = game;
+	localStorage.saveData = JSON.stringify(saveData);
 };
