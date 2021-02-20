@@ -14,7 +14,7 @@ var game = {
 	result: 1,
 	upgrade1: {
 		firstUpgrade: 20.951,
-		secondUpgrade: 1.99,
+		secondUpgrade: 1.9951,
 		level: 1
 	},
 	upgrade2: {
@@ -32,11 +32,6 @@ function calculate() {
 	game.number2.total = Decimal.add(game.number2.add, game.number2.total);
 	game.number2.add = Decimal.div(game.number2.add, game.number2.divide);
 	game.result = Decimal.pow(game.number1.total, game.number2.total);
-	if (Decimal.compare(game.upgrade1.level, 2) >= 0) {
-		game.result = Decimal.pow(game.number1.total.toFixed(0), game.number2.total.toFixed(2));
-	} if (Decimal.compare(game.upgrade1.level, 15) >= 0) {
-		game.result = Decimal.pow(game.number1.total.toFixed(0), game.number2.total.toFixed(1));
-	}
 };
 
 function upgrade1() {
@@ -95,7 +90,7 @@ function notate2(n) {
 
 function UpdateUI() {
 	document.getElementById("result").innerHTML = `${notate2(game.number1.total)}<sup>${(notate(game.number2.total))}</sup> = ${notate(game.result)}`;
-	document.getElementById("Upgrade1").innerHTML = `Increase base and exponent addition. <br> Cost: Base: ${notate(game.upgrade1.firstUpgrade)} <br> Exponent: ${notate(game.upgrade1.secondUpgrade)} <br> Level: ${game.upgrade1.level}`;
+	document.getElementById("Upgrade1").innerHTML = `Increase base and exponent addition. <br> Cost: Base: ${notate(game.upgrade1.firstUpgrade)} <br> Exponent: ${notate(game.upgrade1.secondUpgrade)} <br> Level: ${Decimal.sub(game.upgrade1.level, 1)}`;
 	document.getElementById("Upgrade2").innerHTML = `Increase base and exponent addition. <br> Cost: ${notate(game.upgrade2.cost)} <br> Level: ${game.upgrade2.level}`;
 }
 
