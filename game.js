@@ -19,7 +19,7 @@ var game = {
 	},
 	upgrade2: {
 		cost: 5.56e20,
-		level: 1,
+		level: 0,
 		costExponent: 4.9
 	},
 }
@@ -72,8 +72,8 @@ function upgrade2() {
 			game.number1.add = game.number1.original;
 			game.number2.add = game.number2.original;
 			game.upgrade2.level = Decimal.add(game.upgrade2.level, 1);
-			game.upgrade2.costExponent = Decimal.div(game.upgrade2.costExponent, 2.89855).add(1);
 			game.upgrade2.cost = Decimal.pow(game.upgrade2.cost, game.upgrade2.costExponent);
+			game.upgrade2.costExponent = Decimal.div(game.upgrade2.costExponent, 2.89855).add(1);
 		}
 }
 
