@@ -39,15 +39,15 @@ function upgrade1() {
 		if (Decimal.compare(game.number2.total, game.upgrade1.secondUpgrade) >= 0) {
 			game.number1.total = Decimal.sub(game.number1.total, game.upgrade1.firstUpgrade);
 			game.number2.total = Decimal.sub(game.number2.total, game.upgrade1.secondUpgrade);
-			game.upgrade1.firstUpgrade = Decimal.pow(game.upgrade1.firstUpgrade, 1.5);
+			game.upgrade1.firstUpgrade = Decimal.pow(game.upgrade1.firstUpgrade, 1.25);
 			if (Decimal.compare(game.upgrade1.level, 2) <= 0) {
 				game.upgrade1.secondUpgrade = Decimal.times(game.upgrade1.secondUpgrade, 1.0385);
 			} else {
-				game.upgrade1.secondUpgrade = Decimal.pow(game.upgrade1.secondUpgrade, 1.05).times(1.0385);
+				game.upgrade1.secondUpgrade = Decimal.pow(game.upgrade1.secondUpgrade, 1.06).times(1.0385);
 			}
 			game.number1.divide = Decimal.times(game.number1.divide, 1.0000625)
 			game.number2.divide = Decimal.times(game.number2.divide, 1.0000625)
-			game.number1.original = Decimal.times(game.number1.original, 5);
+			game.number1.original = Decimal.times(game.number1.original, 2.5);
 			game.number2.original = Decimal.times(game.number2.original, 1.175);
 			game.number1.add = game.number1.original;
 			game.number2.add = game.number2.original;
@@ -106,13 +106,10 @@ var mainGameLoop = window.setInterval(function () {
 
 function loadGame() {
 	onLoadClick += 1;
-	var saveData = JSON.parse(localStorage.saveData || null) || {};
-	game = saveData;
 	console.log("Save loaded");
-	return saveData.obj || "default";
+	return game.obj || "default";
 };
 
 function saveGame() {
-	saveData = game;
-	localStorage.saveData = JSON.stringify(saveData);
+	localStorage.game = JSON.stringify(game);
 };
