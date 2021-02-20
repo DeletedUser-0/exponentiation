@@ -18,7 +18,7 @@ var game = {
 		level: 1
 	},
 	upgrade2: {
-		cost: 5.56e20,
+		cost: 1e11,
 		level: 0,
 		costExponent: 4.9
 	},
