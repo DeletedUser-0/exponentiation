@@ -13,12 +13,12 @@ var game = {
 	},
 	result: 1,
 	upgrade1: {
-		firstUpgrade: 20.951,
-		secondUpgrade: 1.9951,
+		firstUpgrade: 16,
+		secondUpgrade: 1.9,
 		level: 1
 	},
 	upgrade2: {
-		cost: 5e10,
+		cost: 5e15,
 		level: 0,
 		costExponent: 4.9
 	},
@@ -39,7 +39,7 @@ function upgrade1() {
 		if (Decimal.compare(game.number2.total, game.upgrade1.secondUpgrade) >= 0) {
 			game.number1.total = Decimal.sub(game.number1.total, game.upgrade1.firstUpgrade);
 			game.number2.total = Decimal.sub(game.number2.total, game.upgrade1.secondUpgrade);
-			game.upgrade1.firstUpgrade = Decimal.pow(game.upgrade1.firstUpgrade, 1.25);
+			game.upgrade1.firstUpgrade = Decimal.times(game.upgrade1.firstUpgrade, 2.75);
 			if (Decimal.compare(game.upgrade1.level, 2) <= 0) {
 				game.upgrade1.secondUpgrade = Decimal.times(game.upgrade1.secondUpgrade, 1.0385);
 			} else {
