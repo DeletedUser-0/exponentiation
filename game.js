@@ -43,7 +43,7 @@ function upgrade1() {
 			if (Decimal.compare(game.upgrade1.level, 2) <= 0) {
 				game.upgrade1.secondUpgrade = Decimal.times(game.upgrade1.secondUpgrade, 1.0385);
 			} else {
-				game.upgrade1.secondUpgrade = Decimal.pow(game.upgrade1.secondUpgrade, 1.06).times(1.0385);
+				game.upgrade1.secondUpgrade = Decimal.pow(game.upgrade1.secondUpgrade, 1.05).times(1.0385);
 			}
 			game.number1.divide = Decimal.times(game.number1.divide, 1.0000625)
 			game.number2.divide = Decimal.times(game.number2.divide, 1.0000625)
